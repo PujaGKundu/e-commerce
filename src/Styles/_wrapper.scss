@@ -1,0 +1,30 @@
+/* Wrapper */
+.wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.size {
+  margin: 8px;
+  background-color: #ececec;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #ececec;
+  cursor: pointer;
+}
+.active {
+  background-color: #eabf00;
+  color: #000;
+}
+.active:hover {
+  border: 1px solid white;
+}
+.size:hover {
+  border: 1px solid #272727;
+}

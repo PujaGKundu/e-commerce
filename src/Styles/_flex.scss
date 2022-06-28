@@ -1,0 +1,19 @@
+/* Flex Properties */
+.flex {
+  display: flex;
+}
+.jsutify-between {
+  justify-content: space-between;
+}
+.item-center {
+  align-items: center;
+}
+.flex-20 {
+  flex: 0 1 15%;
+}
+.flex-80 {
+  flex: 0 1 80%;
+}
+.wrap {
+  flex-wrap: wrap;
+}
