@@ -1,7 +1,11 @@
 import React from "react";
 import OrderBy from "./OrderBy";
 
+import UserContext from "../Context/UserContext";
+
 class Products extends React.Component {
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -39,8 +43,8 @@ class Products extends React.Component {
     let { selectedOrder } = this.state;
     let products = this.handleOrderProducts(
       selectedOrder,
-      this.props.selectedSize,
-      this.props.data
+      this.context.selectedSize,
+      this.context.products
     );
 
     return (
@@ -48,7 +52,7 @@ class Products extends React.Component {
         <div className="products-filter">
           <p>
             {`${products.length} Product${
-              this.props.data.length > 1 ? "s" : ""
+              this.context.products.length > 1 ? "s" : ""
             } found.`}{" "}
           </p>
           <OrderBy
@@ -61,7 +65,7 @@ class Products extends React.Component {
             <Product
               key={product.id}
               {...product}
-              handleAddToCart={this.props.handleAddToCart}
+              handleAddToCart={this.context.handleAddToCart}
             />
           ))}
         </div>

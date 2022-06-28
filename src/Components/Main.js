@@ -1,14 +1,26 @@
 import Products from "./Products";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { useContext } from "react";
+import UserContext, { UserProvider } from "../Context/UserContext";
 
 function Main(props) {
+  let data = useContext(UserContext);
+
   return (
-    <div className="main flex-80">
-      <Products
-        data={props.products}
-        selectedSize={props.selectedSize}
-        handleAddToCart={props.handleAddToCart}
-      />
-    </div>
+    <Router>
+      <UserProvider
+        value={{
+          products: data.products,
+          selectedSize: data.selectedSize,
+          handleAddToCart: props.handleAddToCart,
+        }}
+      >
+        <div className="main flex-80">
+          <Products />
+        </div>
+      </UserProvider>
+    </Router>
   );
 }
 

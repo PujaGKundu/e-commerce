@@ -1,13 +1,17 @@
 import React from "react";
 
+import { useContext } from "react";
+import UserContext from "../Context/UserContext";
+
 function Aside(props) {
-  let sizes = props.products.reduce((acc, cv) => {
+  let data = useContext(UserContext);
+
+  let sizes = data.products.reduce((acc, cv) => {
     acc = acc.concat(cv.availableSizes);
     return acc;
   }, []);
 
   let uniqueSizes = [...new Set(sizes)];
-  let { selectedSize } = props;
 
   return (
     <aside className="flex-20 sidebar">
@@ -15,7 +19,9 @@ function Aside(props) {
         {uniqueSizes.map((size) => (
           <span
             key={size}
-            className={`size ${selectedSize.includes(size) ? "active" : ""}`}
+            className={`size ${
+              data.selectedSize.includes(size) ? "active" : ""
+            }`}
             onClick={() => props.handleClick(size)}
           >
             {size}

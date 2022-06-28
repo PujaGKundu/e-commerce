@@ -1,6 +1,8 @@
 import React from "react";
 import CartItem from "./CartItem";
 
+import { Link } from "react-router-dom";
+
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -74,9 +76,9 @@ class Cart extends React.Component {
               <p>SUBTOTAL</p>
               <p>$ {totalAmount}</p>
             </div>
-            <button onClick={() => alert(`Total Amount is: ${totalAmount}`)}>
-              CHECKOUT
-            </button>
+            <Link to={`/checkout`}>
+              <button>CHECKOUT</button>
+            </Link>
           </div>
         </div>
       </aside>
